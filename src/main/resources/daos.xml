@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personDaoImpl" class="by.bsuir.nad.server.db.dao.PersonDaoImpl">
+        <constructor-arg name="entityManager" type="jakarta.persistence.EntityManager" ref="entityManager"/>
+    </bean>
+    <bean id="userDaoImpl" class="by.bsuir.nad.server.db.dao.UserDaoImpl">
+        <constructor-arg name="entityManager" type="jakarta.persistence.EntityManager" ref="entityManager"/>
+    </bean>
+</beans>

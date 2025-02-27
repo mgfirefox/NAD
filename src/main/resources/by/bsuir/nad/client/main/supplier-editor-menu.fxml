@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<Scene xmlns="http://javafx.com/javafx/22.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.bsuir.nad.client.gui.controller.SupplierEditorMenuController">
+   <root>
+      <VBox alignment="CENTER">
+         <children>
+            <Label text="Меню обработки данных поставщиков" />
+            <HBox alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <TableView fx:id="table">
+                          <placeholder>
+                             <Label>Нажмите кнопку Получить, иначе нет данных поставщиков</Label>
+                          </placeholder>
+                          <columns>
+                            <TableColumn prefWidth="50.0" text="ID" />
+                            <TableColumn prefWidth="300.0" text="Название" />
+                          </columns>
+                        </TableView>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onGetButtonAction" text="Получить" />
+                              <Button layoutX="110.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAddButtonAction" text="Добавить" />
+                              <Button mnemonicParsing="false" onAction="#onEditButtonAction" text="Отредактировать" />
+                              <Button mnemonicParsing="false" onAction="#onRemoveButtonAction" text="Удалить" />
+                              <Button mnemonicParsing="false" onAction="#onBackButtonAction" text="Назад" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="editorMenu" alignment="CENTER">
+                     <children>
+                        <Label fx:id="editorMenuTitle" text="Добавление" />
+                        <Label text="Данные поставщика" />
+                        <VBox alignment="BOTTOM_LEFT">
+                           <children>
+                              <Label text="ID" />
+                              <TextField fx:id="id" disable="true" editable="false" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_LEFT">
+                           <children>
+                              <Label text="Название" />
+                              <TextField fx:id="name" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#onAddConfirmButtonAction" text="Добавить" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </root>
+</Scene>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<Scene xmlns="http://javafx.com/javafx/22.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.bsuir.nad.client.gui.controller.SupplyEditorMenuController">
+   <root>
+      <VBox alignment="CENTER">
+         <children>
+            <Label text="Меню обработки данных поставок" />
+            <HBox alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <TreeTableView>
+                          <placeholder>
+                             <Label>Выберите продукт выше</Label>
+                          </placeholder>
+                          <columns>
+                            <TreeTableColumn prefWidth="50.0" text="ID" />
+                            <TreeTableColumn prefWidth="75.0" text="Поставщик">
+                                 <columns>
+                                    <TreeTableColumn prefWidth="50.0" text="ID" />
+                                    <TreeTableColumn prefWidth="200.0" text="Название" />
+                                 </columns>
+                              </TreeTableColumn>
+                              <TreeTableColumn prefWidth="100.0" text="Дата доставки" />
+                              <TreeTableColumn fx:id="table" prefWidth="100.0" text="Дата оплаты" />
+                              <TreeTableColumn prefWidth="100.0" text="Стоимость" />
+                          </columns>
+                        </TreeTableView>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onGetButtonAction" text="Получить" />
+                              <Button layoutX="110.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAddButtonAction" text="Добавить" />
+                              <Button mnemonicParsing="false" onAction="#onEditButtonAction" text="Отредактировать" />
+                              <Button mnemonicParsing="false" onAction="#onRemoveButtonAction" text="Удалить" />
+                              <Button mnemonicParsing="false" onAction="#onBackButtonAction" text="Назад" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="editorMenu" alignment="CENTER">
+                     <children>
+                        <Label fx:id="editorMenuTitle" text="Добавление" />
+                        <Label text="Данные поставки" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <VBox alignment="BOTTOM_LEFT">
+                                       <children>
+                                          <Label text="ID" />
+                                          <TextField fx:id="id" disable="true" editable="false" prefWidth="300.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="10.0">
+                                       <children>
+                                          <Label text="Дата доставки" />
+                                          <DatePicker fx:id="deliveryDate" prefWidth="300.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="52.0">
+                                       <children>
+                                          <Label text="Дата оплаты" />
+                                          <DatePicker fx:id="paymentDate" prefWidth="300.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <VBox alignment="BOTTOM_LEFT">
+                                       <children>
+                                          <Label text="Поставщик" />
+                                          <ComboBox fx:id="supplier" prefWidth="300.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="BOTTOM_LEFT">
+                                       <children>
+                                          <Label text="Производитель продукта" />
+                                          <ComboBox fx:id="manufacturer" prefWidth="300.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="BOTTOM_LEFT">
+                                       <children>
+                                          <Label text="Продукт" />
+                                          <HBox>
+                                             <children>
+                                                <ComboBox fx:id="product" prefWidth="300.0" />
+                                                <Button fx:id="addSupplyProductButton" mnemonicParsing="false" onAction="#onAddSupplyProductButtonAction" text="Добавить" />
+                                                <Button mnemonicParsing="false" onAction="#onRemoveSupplyProductButtonAction" text="Убрать" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="supplyProductsTable" prefHeight="200.0">
+                           <placeholder>
+                              <Label />
+                           </placeholder>
+                           <columns>
+                              <TableColumn prefWidth="50.0" text="ID" />
+                              <TableColumn prefWidth="200.0" text="Название" />
+                              <TableColumn prefWidth="75.0" text="Производитель">
+                                 <columns>
+                                    <TableColumn prefWidth="50.0" text="ID" />
+                                    <TableColumn prefWidth="200.0" text="Название" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="125.0" text="Единица измерения" />
+                              <TableColumn prefWidth="75.0" text="Количество" />
+                              <TableColumn prefWidth="175.0" text="Цена за единицу измерения" />
+                           </columns>
+                        </TableView>
+                        <VBox alignment="BOTTOM_LEFT">
+                           <children>
+                              <Label text="Стоимость" />
+                              <TextField fx:id="cost" editable="false" prefWidth="300.0" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#onAddConfirmButtonAction" text="Добавить" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </root>
+</Scene>
